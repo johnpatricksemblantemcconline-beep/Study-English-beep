@@ -1,0 +1,2688 @@
+/* =========================================
+   MY ESL CAT SPACE
+   Main Styles
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Poppins", sans-serif;
+
+    background:
+        linear-gradient(
+            180deg,
+            #87CEEB 0%,
+            #A8DFF5 45%,
+            #D8F3FF 100%
+        );
+
+    color: #284B63;
+    overflow-x: hidden;
+    position: relative;
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.navbar {
+    position: fixed;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: calc(100% - 50px);
+    max-width: 1250px;
+
+    padding: 15px 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 25px;
+
+    box-shadow: 0 15px 40px rgba(128, 90, 150, 0.12);
+
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    font-weight: bold;
+    color: #765a8c;
+}
+
+.logo-cat {
+    font-size: 25px;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 25px;
+}
+
+.navbar nav a {
+    text-decoration: none;
+    color: #6d6177;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #d47aa8;
+}
+
+.teacher-button {
+    border: none;
+    background: #f5d4e5;
+
+    color: #76516d;
+
+    padding: 10px 16px;
+    border-radius: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.teacher-button:hover {
+    transform: translateY(-2px);
+    background: #edc0d9;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    min-height: 100vh;
+
+    padding: 150px 8% 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+}
+
+.hero-content {
+    max-width: 600px;
+
+    animation: heroAppear 1s ease forwards;
+}
+
+.small-label,
+.section-label {
+    display: inline-block;
+
+    color: #c46d99;
+
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 7vw, 90px);
+
+    line-height: 0.98;
+
+    color: #604c6e;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    display: block;
+
+    background: linear-gradient(
+        90deg,
+        #d56fa1,
+        #9c82d6,
+        #d889aa
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.7;
+
+    max-width: 520px;
+
+    color: #786d7f;
+
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.primary-button,
+.secondary-button {
+    border: none;
+
+    padding: 14px 23px;
+
+    border-radius: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.primary-button {
+    background: linear-gradient(
+        135deg,
+        #d879a7,
+        #a38bd7
+    );
+
+    color: white;
+
+    box-shadow: 0 10px 25px rgba(181, 115, 163, 0.25);
+}
+
+.primary-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(181, 115, 163, 0.35);
+}
+
+.secondary-button {
+    background: rgba(255, 255, 255, 0.7);
+    color: #765a8c;
+
+    border: 1px solid #eaddec;
+}
+
+.secondary-button:hover {
+    transform: translateY(-4px);
+    background: white;
+}
+
+
+/* =========================================
+   EXPRESSIVE WALKING CAT
+========================================= */
+
+.cat-walkway {
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    /* Keeps the cat near the bottom of the hero */
+    bottom: 35px;
+
+    height: 230px;
+
+    pointer-events: none;
+
+    z-index: 20;
+
+    overflow: visible;
+}
+
+
+/* =========================================
+   CAT WALKER
+========================================= */
+
+.cat-walker {
+    position: absolute;
+
+    left: -220px;
+    bottom: 15px;
+
+    width: 180px;
+    height: 205px;
+
+    animation:
+        catWalkAcross 22s linear infinite,
+        catWalkBounce 0.55s ease-in-out infinite;
+
+    transform-origin: center bottom;
+
+    pointer-events: auto;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   CAT
+========================================= */
+
+.cat {
+    position: absolute;
+
+    width: 180px;
+    height: 200px;
+
+    left: 0;
+    bottom: 0;
+
+    transform-origin: center bottom;
+
+    animation:
+        catBreathing 2.5s ease-in-out infinite;
+}
+
+
+/* =========================================
+   SOFT GLOW
+========================================= */
+
+.cat-glow {
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    left: -25px;
+    top: -20px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(239, 182, 220, 0.28),
+            transparent 70%
+        );
+
+    filter: blur(12px);
+
+    z-index: -2;
+}
+
+
+/* =========================================
+   CAT FACE
+========================================= */
+
+.cat-face {
+    position: absolute;
+
+    width: 140px;
+    height: 125px;
+
+    left: 20px;
+    top: 8px;
+
+    background: #f4c8dc;
+
+    border: 4px solid #b889a7;
+
+    border-radius: 48%;
+
+    z-index: 5;
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+/* =========================================
+   EARS
+========================================= */
+
+.cat-ear {
+    position: absolute;
+
+    width: 58px;
+    height: 58px;
+
+    top: -5px;
+
+    background: #f4c8dc;
+
+    border: 4px solid #b889a7;
+
+    z-index: -1;
+}
+
+.left-ear {
+    left: 17px;
+
+    transform:
+        rotate(35deg);
+
+    border-radius:
+        10px 45px 5px 35px;
+}
+
+.right-ear {
+    right: 17px;
+
+    transform:
+        rotate(-35deg);
+
+    border-radius:
+        45px 10px 35px 5px;
+}
+
+
+/* =========================================
+   EYES
+========================================= */
+
+.cat-eye {
+    position: absolute;
+
+    width: 14px;
+    height: 21px;
+
+    top: 53px;
+
+    background: #59495e;
+
+    border-radius: 50%;
+
+    transition:
+        transform 0.2s ease;
+}
+
+.left-eye {
+    left: 39px;
+}
+
+.right-eye {
+    right: 39px;
+}
+
+
+/* =========================================
+   NOSE
+========================================= */
+
+.cat-nose {
+    position: absolute;
+
+    width: 13px;
+    height: 9px;
+
+    left: 64px;
+    top: 76px;
+
+    background: #c76f94;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================
+   MOUTH
+========================================= */
+
+.cat-mouth {
+    position: absolute;
+
+    width: 18px;
+    height: 10px;
+
+    left: 61px;
+    top: 86px;
+
+    border-bottom:
+        2px solid #76516d;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================
+   CHEEKS
+========================================= */
+
+.cat-cheek {
+    position: absolute;
+
+    width: 22px;
+    height: 9px;
+
+    top: 81px;
+
+    background:
+        rgba(217, 122, 162, 0.3);
+
+    border-radius: 50%;
+}
+
+.left-cheek {
+    left: 13px;
+}
+
+.right-cheek {
+    right: 13px;
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+.cat-body {
+    position: absolute;
+
+    width: 125px;
+    height: 92px;
+
+    left: 27px;
+    top: 113px;
+
+    background: #f0bdd4;
+
+    border: 4px solid #b889a7;
+
+    border-radius:
+        60px 60px 35px 35px;
+
+    z-index: 2;
+}
+
+
+/* =========================================
+   PAWS
+========================================= */
+
+.cat-paw {
+    position: absolute;
+
+    width: 40px;
+    height: 31px;
+
+    background: #f0bdd4;
+
+    border: 4px solid #b889a7;
+
+    border-radius: 50%;
+
+    transform-origin: top center;
+
+    z-index: 4;
+}
+
+.left-paw {
+    left: 17px;
+    bottom: -3px;
+
+    animation:
+        leftPawWalk
+        0.55s
+        ease-in-out
+        infinite;
+}
+
+.right-paw {
+    right: 17px;
+    bottom: -3px;
+
+    animation:
+        rightPawWalk
+        0.55s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================================
+   TAIL
+========================================= */
+
+.cat-tail {
+    position: absolute;
+
+    width: 70px;
+    height: 75px;
+
+    right: -30px;
+    top: 122px;
+
+    border:
+        12px solid #f0bdd4;
+
+    border-left: none;
+
+    border-radius:
+        0 60px 60px 0;
+
+    transform: rotate(-15deg);
+
+    z-index: 1;
+
+    animation:
+        tailWag
+        1.1s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================================
+   SHADOW
+========================================= */
+
+.cat-shadow {
+    position: absolute;
+
+    width: 155px;
+    height: 18px;
+
+    left: 10px;
+    bottom: -3px;
+
+    background:
+        rgba(108, 83, 120, 0.13);
+
+    border-radius: 50%;
+
+    filter: blur(8px);
+
+    animation:
+        shadowBounce
+        0.55s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================================
+   SPEECH BUBBLE
+========================================= */
+
+.cat-message {
+    position: absolute;
+
+    left: 105px;
+    top: -45px;
+
+    min-width: 165px;
+
+    padding: 11px 15px;
+
+    background: white;
+
+    color: #745b7f;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-align: center;
+
+    border-radius:
+        17px 17px 17px 5px;
+
+    box-shadow:
+        0 8px 22px
+        rgba(100, 70, 120, 0.13);
+
+    white-space: nowrap;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+
+    animation:
+        speechFloat
+        2.5s
+        ease-in-out
+        infinite;
+
+    z-index: 20;
+}
+
+.cat-message::after {
+    content: "";
+
+    position: absolute;
+
+    left: 13px;
+    bottom: -8px;
+
+    width: 16px;
+    height: 16px;
+
+    background: white;
+
+    transform:
+        rotate(45deg);
+
+    border-radius: 3px;
+}
+
+
+/* =========================================
+   WALK ACROSS SCREEN
+========================================= */
+
+@keyframes catWalkAcross {
+
+    0% {
+        left: -220px;
+        transform: scaleX(1);
+    }
+
+    43% {
+        left: calc(100vw - 190px);
+        transform: scaleX(1);
+    }
+
+    47% {
+        left: calc(100vw - 190px);
+        transform: scaleX(1);
+    }
+
+    50% {
+        left: calc(100vw - 190px);
+        transform: scaleX(-1);
+    }
+
+    93% {
+        left: -220px;
+        transform: scaleX(-1);
+    }
+
+    97% {
+        left: -220px;
+        transform: scaleX(-1);
+    }
+
+    100% {
+        left: -220px;
+        transform: scaleX(1);
+    }
+}
+
+
+/* =========================================
+   WALKING BOUNCE
+========================================= */
+
+@keyframes catWalkBounce {
+
+    0%,
+    100% {
+        bottom: 15px;
+    }
+
+    50% {
+        bottom: 21px;
+    }
+}
+
+
+/* =========================================
+   PAWS
+========================================= */
+
+@keyframes leftPawWalk {
+
+    0%,
+    100% {
+        transform:
+            rotate(15deg);
+    }
+
+    50% {
+        transform:
+            rotate(-18deg);
+    }
+}
+
+@keyframes rightPawWalk {
+
+    0%,
+    100% {
+        transform:
+            rotate(-15deg);
+    }
+
+    50% {
+        transform:
+            rotate(18deg);
+    }
+}
+
+
+/* =========================================
+   TAIL
+========================================= */
+
+@keyframes tailWag {
+
+    0%,
+    100% {
+        transform:
+            rotate(-18deg);
+    }
+
+    50% {
+        transform:
+            rotate(12deg);
+    }
+}
+
+
+/* =========================================
+   SHADOW
+========================================= */
+
+@keyframes shadowBounce {
+
+    0%,
+    100% {
+        transform:
+            scaleX(1);
+    }
+
+    50% {
+        transform:
+            scaleX(0.8);
+    }
+}
+
+
+/* =========================================
+   BREATHING
+========================================= */
+
+@keyframes catBreathing {
+
+    0%,
+    100% {
+        transform:
+            scaleY(1);
+    }
+
+    50% {
+        transform:
+            scaleY(1.015);
+    }
+}
+
+
+/* =========================================
+   SPEECH FLOAT
+========================================= */
+
+@keyframes speechFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-5px);
+    }
+}
+
+
+/* =========================================
+   BLINK
+========================================= */
+
+@keyframes blinkCat {
+
+    0%,
+    44%,
+    48%,
+    100% {
+        transform:
+            scaleY(1);
+    }
+
+    45%,
+    47% {
+        transform:
+            scaleY(0.08);
+    }
+}
+
+
+/* =========================================
+   JUMP
+========================================= */
+
+.cat-walker.jumping {
+    animation:
+        catJump 1s ease-in-out;
+}
+
+@keyframes catJump {
+
+    0% {
+        bottom: 15px;
+    }
+
+    35% {
+        bottom: 90px;
+    }
+
+    55% {
+        bottom: 90px;
+    }
+
+    100% {
+        bottom: 15px;
+    }
+}
+
+
+/* =========================================
+   SLEEPING
+========================================= */
+
+.cat-walker.sleeping {
+    animation-play-state: paused;
+}
+
+.cat-walker.sleeping .cat {
+    animation:
+        sleepingCat 2s ease-in-out infinite;
+}
+
+@keyframes sleepingCat {
+
+    0%,
+    100% {
+        transform:
+            scaleY(0.94)
+            translateY(5px);
+    }
+
+    50% {
+        transform:
+            scaleY(0.90)
+            translateY(8px);
+    }
+}
+
+
+/* =========================================
+   SLEEPING EYES
+========================================= */
+
+.cat-walker.sleeping .cat-eye {
+    transform:
+        scaleY(0.1);
+}
+
+
+/* =========================================
+   WAVING
+========================================= */
+
+.cat-walker.waving .right-paw {
+    animation:
+        catWave
+        0.35s
+        ease-in-out
+        infinite;
+}
+
+@keyframes catWave {
+
+    0%,
+    100% {
+        transform:
+            rotate(-15deg);
+    }
+
+    50% {
+        transform:
+            rotate(40deg);
+    }
+}
+
+
+/* =========================================
+   HAPPY
+========================================= */
+
+.cat-walker.happy .cat-face {
+    animation:
+        happyFace
+        0.65s
+        ease-in-out;
+}
+
+@keyframes happyFace {
+
+    0% {
+        transform:
+            rotate(0);
+    }
+
+    25% {
+        transform:
+            rotate(-5deg);
+    }
+
+    50% {
+        transform:
+            rotate(5deg);
+    }
+
+    75% {
+        transform:
+            rotate(-3deg);
+    }
+
+    100% {
+        transform:
+            rotate(0);
+    }
+}
+
+
+/* =========================================
+   CLICK REACTION
+========================================= */
+
+.cat-walker.clicked {
+    animation:
+        catClicked
+        0.8s
+        ease-in-out;
+}
+
+@keyframes catClicked {
+
+    0% {
+        transform:
+            scaleX(1)
+            scaleY(1);
+    }
+
+    30% {
+        transform:
+            scaleX(1.08)
+            scaleY(0.9);
+    }
+
+    55% {
+        transform:
+            scaleX(0.95)
+            scaleY(1.08);
+    }
+
+    100% {
+        transform:
+            scaleX(1)
+            scaleY(1);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .cat-walkway {
+        bottom: 20px;
+        height: 190px;
+    }
+
+    .cat-walker {
+        transform:
+            scale(0.68);
+        transform-origin:
+            bottom left;
+    }
+
+    .cat-message {
+        left: 90px;
+        min-width: 140px;
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+.section {
+    padding: 110px 8%;
+    position: relative;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 650px;
+
+    margin: 0 auto 55px;
+}
+
+.section-heading h2 {
+    font-size: clamp(35px, 5vw, 58px);
+
+    color: #5f4c6d;
+
+    margin-bottom: 15px;
+}
+
+.section-heading p {
+    color: #817489;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   LEARNING CARDS
+========================================= */
+
+.learning-grid {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.learning-card {
+    position: relative;
+
+    padding: 30px;
+
+    min-height: 230px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+
+    border-radius: 28px;
+
+    box-shadow: 0 15px 40px rgba(130, 100, 150, 0.08);
+
+    cursor: pointer;
+
+    transition: 0.4s;
+}
+
+.learning-card:hover {
+    transform: translateY(-10px) rotate(1deg);
+
+    background: white;
+
+    box-shadow: 0 25px 50px rgba(130, 100, 150, 0.15);
+}
+
+.card-icon {
+    font-size: 38px;
+
+    margin-bottom: 25px;
+}
+
+.learning-card h3 {
+    font-size: 22px;
+
+    color: #634f70;
+
+    margin-bottom: 10px;
+}
+
+.learning-card p {
+    color: #84758b;
+
+    line-height: 1.6;
+}
+
+.card-arrow {
+    position: absolute;
+
+    right: 25px;
+    bottom: 22px;
+
+    color: #ca77a0;
+
+    font-size: 25px;
+}
+
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+.progress-section {
+    background: rgba(255, 232, 244, 0.35);
+}
+
+.progress-card {
+    max-width: 850px;
+
+    margin: auto;
+
+    padding: 40px;
+
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    border-radius: 30px;
+
+    box-shadow: 0 20px 50px rgba(120, 90, 140, 0.1);
+}
+
+.progress-cat {
+    width: 100px;
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 55px;
+
+    background: #f9dce9;
+
+    border-radius: 50%;
+}
+
+.progress-information {
+    flex: 1;
+}
+
+.progress-information h3 {
+    font-size: 26px;
+
+    color: #604c6e;
+
+    margin-bottom: 10px;
+}
+
+.progress-information p {
+    color: #817489;
+
+    line-height: 1.6;
+
+    margin-bottom: 25px;
+}
+
+.progress-bar {
+    height: 15px;
+
+    background: #eee3f1;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #db7fab,
+        #a68ad7
+    );
+
+    border-radius: 20px;
+
+    transition: width 1s ease;
+}
+
+.progress-details {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 10px;
+
+    font-size: 13px;
+
+    color: #8b7791;
+}
+
+
+/* =========================================
+   ABOUT
+========================================= */
+
+.about-card {
+    max-width: 950px;
+
+    margin: auto;
+
+    padding: 50px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 221, 237, 0.8),
+            rgba(230, 220, 255, 0.8)
+        );
+
+    border-radius: 35px;
+
+    box-shadow: 0 20px 50px rgba(120, 90, 140, 0.1);
+}
+
+.about-cat {
+    min-width: 120px;
+    height: 120px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 65px;
+
+    background: rgba(255, 255, 255, 0.7);
+
+    border-radius: 50%;
+}
+
+.about-card h2 {
+    font-size: 38px;
+
+    color: #604c6e;
+
+    margin-bottom: 15px;
+}
+
+.about-card p {
+    color: #75687d;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   MODALS
+========================================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(65, 48, 75, 0.35);
+
+    backdrop-filter: blur(10px);
+
+    z-index: 3000;
+
+    padding: 20px;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    position: relative;
+
+    width: 100%;
+    max-width: 430px;
+
+    padding: 40px;
+
+    text-align: center;
+
+    background: #fffafd;
+
+    border-radius: 30px;
+
+    box-shadow: 0 30px 80px rgba(60, 40, 70, 0.25);
+
+    animation: modalAppear 0.4s ease;
+}
+
+.close-button {
+    position: absolute;
+
+    top: 15px;
+    right: 18px;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 28px;
+
+    color: #927f96;
+
+    cursor: pointer;
+}
+
+.modal-cat {
+    font-size: 55px;
+
+    margin-bottom: 15px;
+}
+
+.modal-content h2 {
+    color: #604c6e;
+
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    color: #817489;
+
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+}
+
+.modal-content input {
+    width: 100%;
+
+    padding: 15px 17px;
+
+    margin-bottom: 13px;
+
+    border: 1px solid #eaddec;
+
+    border-radius: 15px;
+
+    outline: none;
+
+    font-family: inherit;
+
+    background: #fff;
+
+    transition: 0.3s;
+}
+
+.modal-content input:focus {
+    border-color: #d17ba4;
+
+    box-shadow: 0 0 0 4px rgba(209, 123, 164, 0.1);
+}
+
+.modal-button {
+    width: 100%;
+}
+
+.student-message {
+    margin-top: 15px;
+
+    color: #c06f98 !important;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    text-align: center;
+
+    padding: 50px 20px;
+
+    color: #8b7892;
+}
+
+.footer-cat {
+    font-size: 35px;
+
+    margin-bottom: 10px;
+}
+
+footer p {
+    margin-bottom: 8px;
+}
+
+
+/* =========================================
+   DECORATIONS
+========================================= */
+
+.floating-decoration {
+    position: fixed;
+
+    z-index: -1;
+
+    opacity: 0.45;
+
+    pointer-events: none;
+
+    animation: decorationFloat 6s ease-in-out infinite;
+}
+
+.decoration-1 {
+    top: 20%;
+    left: 5%;
+
+    color: #d783ad;
+
+    font-size: 28px;
+}
+
+.decoration-2 {
+    top: 65%;
+    left: 8%;
+
+    color: #a88bd2;
+
+    font-size: 30px;
+
+    animation-delay: 1s;
+}
+
+.decoration-3 {
+    top: 35%;
+    right: 5%;
+
+    color: #d783ad;
+
+    font-size: 30px;
+
+    animation-delay: 2s;
+}
+
+.decoration-4 {
+    top: 75%;
+    right: 8%;
+
+    font-size: 25px;
+
+    animation-delay: 3s;
+}
+
+.background-glow {
+    position: fixed;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    pointer-events: none;
+
+    z-index: -2;
+
+    opacity: 0.25;
+}
+
+.glow-1 {
+    background: #f0a6c9;
+
+    top: 10%;
+    left: -100px;
+}
+
+.glow-2 {
+    background: #b9a3e6;
+
+    bottom: 0;
+    right: -100px;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes heroAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes catFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-18px);
+    }
+
+}
+
+@keyframes catBreathe {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.025);
+    }
+
+}
+
+@keyframes blink {
+
+    0%,
+    45%,
+    48%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    46%,
+    47% {
+        transform: scaleY(0.1);
+    }
+
+}
+
+@keyframes messageFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+}
+
+@keyframes decorationFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-25px) rotate(15deg);
+    }
+
+}
+
+@keyframes modalAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 950px) {
+
+    .navbar nav {
+        display: none;
+    }
+
+    .hero {
+        flex-direction: column;
+
+        text-align: center;
+
+        padding-top: 150px;
+    }
+
+    .hero-content {
+        margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .learning-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        width: calc(100% - 20px);
+
+        padding: 12px 15px;
+    }
+
+    .logo {
+        font-size: 13px;
+    }
+
+    .teacher-button {
+        font-size: 11px;
+        padding: 8px 10px;
+    }
+
+    .hero {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+    .cat-area {
+        width: 330px;
+        height: 330px;
+        transform: scale(0.8);
+    }
+
+    .learning-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .progress-card {
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 30px 20px;
+    }
+
+    .about-card {
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 35px 25px;
+    }
+
+    .about-card h2 {
+        font-size: 30px;
+    }
+
+    .modal-content {
+        padding: 35px 25px;
+    }
+
+}
+
+/* ================================
+   TEACHER LOGIN
+================================ */
+
+.teacher-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(30, 20, 50, 0.55);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.teacher-login-box {
+    width: 90%;
+    max-width: 400px;
+    padding: 35px;
+    border-radius: 25px;
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        #fff0f8,
+        #f3e8ff,
+        #e8f4ff
+    );
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+
+    animation: teacherLoginPop 0.35s ease;
+}
+
+.teacher-icon {
+    font-size: 55px;
+    margin-bottom: 5px;
+}
+
+.teacher-login-box h2 {
+    margin: 5px 0;
+    font-size: 28px;
+    color: #7b4fa3;
+}
+
+.teacher-login-box p {
+    color: #777;
+}
+
+.teacher-login-box input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    margin: 8px 0;
+    border: 2px solid #eadcf5;
+    border-radius: 12px;
+    outline: none;
+    font-size: 15px;
+}
+
+.teacher-login-box input:focus {
+    border-color: #c58be8;
+}
+
+.login-submit {
+    width: 100%;
+    padding: 14px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 14px;
+
+    background: linear-gradient(
+        135deg,
+        #d98bea,
+        #9f8bea
+    );
+
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.login-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(159, 139, 234, 0.35);
+}
+
+.close-login {
+    float: right;
+    border: none;
+    background: transparent;
+    font-size: 28px;
+    cursor: pointer;
+    color: #777;
+}
+
+.close-login:hover {
+    color: #d65c9e;
+}
+
+#loginMessage {
+    min-height: 20px;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+@keyframes teacherLoginPop {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ================================
+   TEACHER DASHBOARD
+================================ */
+
+.teacher-dashboard {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    overflow-y: auto;
+    padding: 40px;
+    background: linear-gradient(
+        135deg,
+        #fff0f7,
+        #f4ecff,
+        #eaf6ff
+    );
+}
+
+.dashboard-header {
+    max-width: 1100px;
+    margin: 0 auto 30px;
+    padding: 30px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-shadow: 0 10px 35px rgba(100, 70, 130, 0.12);
+}
+
+.dashboard-label {
+    font-size: 13px;
+    font-weight: bold;
+    color: #a15bb8;
+    letter-spacing: 1px;
+}
+
+.dashboard-header h2 {
+    margin: 8px 0;
+    font-size: 32px;
+    color: #71488e;
+}
+
+.dashboard-header p {
+    margin: 0;
+    color: #777;
+}
+
+.dashboard-close {
+    border: none;
+    background: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.dashboard-actions,
+.student-section {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dashboard-actions {
+    margin-bottom: 25px;
+}
+
+.add-student-button {
+    border: none;
+    border-radius: 15px;
+    padding: 14px 22px;
+    background: linear-gradient(135deg, #db8be9, #9b8be8);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.student-section {
+    padding: 30px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+}
+
+.student-section h3 {
+    color: #71488e;
+}
+
+.student-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 18px;
+    background: white;
+    box-shadow: 0 5px 20px rgba(100, 70, 130, 0.08);
+}
+
+.student-avatar {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f8e5ff;
+    font-size: 30px;
+}
+
+.student-info h3 {
+    margin: 0 0 6px;
+    color: #71488e;
+}
+
+.student-info p {
+    margin: 4px 0;
+    color: #777;
+}
+
+.no-students,
+.empty-students {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+}
+
+/* ADD STUDENT MODAL */
+
+.student-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(30, 20, 50, 0.5);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+}
+
+.student-form-box {
+    width: 90%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 25px;
+    background: linear-gradient(
+        135deg,
+        #fff0f8,
+        #f3e8ff
+    );
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.student-form-box h2 {
+    color: #71488e;
+}
+
+.student-form-box input,
+.student-form-box select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px;
+    margin: 7px 0;
+    border: 2px solid #eadcf5;
+    border-radius: 12px;
+    font-size: 15px;
+}
+
+.save-student-button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 13px;
+    background: linear-gradient(135deg, #db8be9, #9b8be8);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-student-form {
+    float: right;
+    border: none;
+    background: transparent;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* ==========================================
+   UPDATE PROGRESS
+========================================== */
+
+.progress-form-box {
+    max-width: 520px;
+}
+
+
+/* Progress modal icon */
+
+.progress-modal-icon {
+    font-size: 55px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+
+/* Form labels */
+
+.progress-form-box label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 7px;
+    font-weight: 700;
+    color: #6f4b7e;
+}
+
+
+/* Progress range */
+
+.progress-input-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.progress-input-row input[type="range"] {
+    flex: 1;
+    cursor: pointer;
+}
+
+
+#progressNumber {
+    min-width: 50px;
+    font-weight: 800;
+    color: #d66ba0;
+    font-size: 18px;
+    text-align: right;
+}
+
+
+/* Textarea */
+
+#progressNotes {
+    width: 100%;
+    box-sizing: border-box;
+    resize: vertical;
+    border: 1px solid #ead7e9;
+    border-radius: 14px;
+    padding: 12px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    background: #fffaff;
+}
+
+
+#progressNotes:focus {
+    border-color: #d88bc0;
+    box-shadow: 0 0 0 3px rgba(216, 139, 192, 0.15);
+}
+
+
+/* Save progress button */
+
+.save-progress-button {
+    width: 100%;
+    margin-top: 22px;
+    padding: 14px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(
+        135deg,
+        #d982b5,
+        #a98bd4
+    );
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+
+.save-progress-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(170, 120, 180, 0.25);
+}
+
+
+/* ==========================================
+   STUDENT CARD
+========================================== */
+
+.student-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(220, 190, 225, 0.6);
+    border-radius: 22px;
+    padding: 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 8px 25px rgba(130, 90, 150, 0.08);
+    transition: 0.25s ease;
+}
+
+
+.student-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(130, 90, 150, 0.14);
+}
+
+
+/* Student card header */
+
+.student-card-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+
+.student-avatar {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f9e6f3;
+    font-size: 28px;
+}
+
+
+.student-main-info h3 {
+    margin: 0 0 5px;
+    color: #5f426b;
+}
+
+
+.student-level {
+    display: inline-block;
+    padding: 5px 11px;
+    border-radius: 20px;
+    background: #eee6fa;
+    color: #76558b;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* Student information */
+
+.student-progress-info {
+    margin-top: 10px;
+}
+
+
+.progress-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+
+.progress-row span {
+    color: #8b718f;
+}
+
+
+.progress-row strong {
+    color: #5f426b;
+    text-align: right;
+}
+
+
+/* Dashboard progress bar */
+
+.dashboard-progress-bar {
+    width: 100%;
+    height: 11px;
+    background: #eee5f0;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 10px 0 18px;
+}
+
+
+.dashboard-progress-fill {
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(
+        90deg,
+        #e99bc2,
+        #a78bd4
+    );
+    transition: width 0.5s ease;
+}
+
+
+/* Teacher notes */
+
+.teacher-note-display {
+    margin-top: 15px;
+    padding: 14px;
+    border-radius: 14px;
+    background: #fff7fc;
+}
+
+
+.teacher-note-display > span {
+    font-size: 13px;
+    font-weight: 700;
+    color: #76558b;
+}
+
+
+.teacher-note-display p {
+    margin: 7px 0 0;
+    color: #806f84;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* Update button */
+
+.update-progress-button {
+    width: 100%;
+    margin-top: 18px;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 13px;
+    background: #f2e6f7;
+    color: #76558b;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+
+.update-progress-button:hover {
+    background: linear-gradient(
+        135deg,
+        #e9afd0,
+        #c2afe6
+    );
+    color: white;
+    transform: translateY(-2px);
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .student-card {
+        padding: 17px;
+    }
+
+    .progress-form-box {
+        width: calc(100% - 30px);
+    }
+
+    .progress-row {
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .progress-row strong {
+        text-align: left;
+    }
+
+}
+
+/* ================================
+   SKY ANIMATION
+================================ */
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 180px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 50px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+body::before {
+    top: 18%;
+    left: -220px;
+    box-shadow:
+        45px -20px 0 5px rgba(255, 255, 255, 0.65),
+        90px 0 0 10px rgba(255, 255, 255, 0.65);
+
+    animation: cloudMove 35s linear infinite;
+}
+
+body::after {
+    top: 38%;
+    left: -300px;
+    transform: scale(0.75);
+
+    box-shadow:
+        45px -20px 0 5px rgba(255, 255, 255, 0.55),
+        90px 0 0 10px rgba(255, 255, 255, 0.55);
+
+    animation: cloudMove 48s linear infinite;
+}
+
+@keyframes cloudMove {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(100vw + 500px));
+    }
+}
+
+/* ================================
+   FLYING BIRDS
+================================ */
+
+.sky-birds {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.bird {
+    position: absolute;
+    color: rgba(55, 85, 110, 0.65);
+    font-size: 32px;
+    font-weight: bold;
+    animation: birdFly 18s linear infinite;
+}
+
+.bird-one {
+    top: 17%;
+    left: -80px;
+    animation-delay: 0s;
+}
+
+.bird-two {
+    top: 29%;
+    left: -150px;
+    font-size: 24px;
+    animation-delay: 5s;
+}
+
+.bird-three {
+    top: 12%;
+    left: -250px;
+    font-size: 20px;
+    animation-delay: 9s;
+}
+
+@keyframes birdFly {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+
+    25% {
+        transform: translateX(25vw) translateY(-20px);
+    }
+
+    50% {
+        transform: translateX(50vw) translateY(10px);
+    }
+
+    75% {
+        transform: translateX(75vw) translateY(-15px);
+    }
+
+    100% {
+        transform: translateX(110vw) translateY(0);
+    }
+}
+
+/* ================================
+   SOFT WIND EFFECT
+================================ */
+
+body {
+    background-size: 200% 200%;
+    animation: skyBreathing 12s ease-in-out infinite alternate;
+}
+
+@keyframes skyBreathing {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+/* =====================================
+   LESSON DETAIL SECTIONS
+===================================== */
+
+.lesson-detail-section {
+    display: none;
+    min-height: 100vh;
+    padding: 80px 8%;
+    text-align: center;
+    animation: lessonFadeIn 0.5s ease;
+}
+
+
+.lesson-detail-header {
+    max-width: 800px;
+    margin: 0 auto 50px;
+}
+
+
+.lesson-detail-header h2 {
+    font-size: 42px;
+    margin: 15px 0;
+}
+
+
+.lesson-detail-header p {
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: auto;
+}
+
+
+/* TOPIC CARDS */
+
+.lesson-topic-grid {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+.lesson-topic-card {
+    padding: 30px 25px;
+
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    text-align: left;
+}
+
+
+.lesson-topic-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.10);
+}
+
+
+.lesson-topic-card span {
+    font-size: 38px;
+
+    display: block;
+
+    margin-bottom: 15px;
+}
+
+
+.lesson-topic-card h3 {
+    font-size: 21px;
+
+    margin-bottom: 10px;
+}
+
+
+.lesson-topic-card p {
+    font-size: 15px;
+
+    line-height: 1.6;
+
+    margin: 0;
+}
+
+
+/* BACK BUTTON */
+
+.back-learning-btn {
+    margin-top: 50px;
+
+    padding: 14px 28px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    background: white;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.back-learning-btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ANIMATION */
+
+@keyframes lessonFadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 800px) {
+
+    .lesson-topic-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .lesson-detail-section {
+        padding: 60px 6%;
+    }
+
+
+    .lesson-detail-header h2 {
+        font-size: 32px;
+    }
+
+
+    .lesson-detail-header p {
+        font-size: 16px;
+    }
+
+}

@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My ESL Cat Space</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- Animated Birds -->
+<div class="sky-birds">
+    <span class="bird bird-one">⌁</span>
+    <span class="bird bird-two">⌁</span>
+    <span class="bird bird-three">⌁</span>
+</div>
+
+    <!-- =========================================
+         FLOATING DECORATIONS
+    ========================================== -->
+
+    <div class="floating-decoration decoration-1">
+        ✦
+    </div>
+
+    <div class="floating-decoration decoration-2">
+        ♡
+    </div>
+
+    <div class="floating-decoration decoration-3">
+        ✧
+    </div>
+
+    <div class="floating-decoration decoration-4">
+        🐾
+    </div>
+
+
+    <!-- =========================================
+         ANIMATED BACKGROUND
+    ========================================== -->
+
+    <div class="background-glow glow-1"></div>
+
+    <div class="background-glow glow-2"></div>
+
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================== -->
+
+    <header class="navbar">
+
+        <div class="logo">
+
+            <span class="logo-cat">
+                🐱
+            </span>
+
+            <span>
+                My ESL Cat Space
+            </span>
+
+        </div>
+
+
+        <nav>
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#learning">
+                Learning
+            </a>
+
+            <a href="#progress">
+                Progress
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+        </nav>
+
+
+        <button
+            class="teacher-button"
+            onclick="openTeacherLogin()"
+        >
+            👩‍🏫 Teacher
+        </button>
+
+    </header>
+
+
+    <!-- =========================================
+         MAIN WEBSITE
+    ========================================== -->
+
+    <main>
+
+
+        <!-- =====================================
+             HERO SECTION
+        ====================================== -->
+        
+        <section
+            id="home"
+            class="hero"
+        >
+
+            <div class="hero-content">
+
+                <div class="small-label">
+
+                    ✨ YOUR PERSONAL ESL SPACE
+
+                </div>
+
+
+                <h1>
+
+                    Learn English
+
+                    <span>
+                        with a little magic.
+                    </span>
+
+                </h1>
+
+
+                <p>
+
+                    A cozy and personalized English
+                    learning space where every student
+                    can learn, practice, and grow.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <button
+                        class="primary-button"
+                        onclick="goToLearning()"
+                    >
+                        Start Learning ✨
+                    </button>
+
+
+                    <button
+                        class="secondary-button"
+                        onclick="openStudentArea()"
+                    >
+                        👩‍🎓 Student Area
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- WALKING CAT -->
+
+            <div class="cat-walkway">
+
+                <div class="cat-walker">
+
+                    <div class="cat-glow"></div>
+
+
+                    <div class="cat">
+
+                        <div class="cat-ear left-ear"></div>
+
+                        <div class="cat-ear right-ear"></div>
+
+
+                        <div class="cat-face">
+
+                            <div class="cat-eye left-eye"></div>
+
+                            <div class="cat-eye right-eye"></div>
+
+                            <div class="cat-nose"></div>
+
+                            <div class="cat-mouth"></div>
+
+                            <div class="cat-cheek left-cheek"></div>
+
+                            <div class="cat-cheek right-cheek"></div>
+
+                        </div>
+
+
+                        <div class="cat-body"></div>
+
+                        <div class="cat-tail"></div>
+
+                        <div class="cat-paw left-paw"></div>
+
+                        <div class="cat-paw right-paw"></div>
+
+                    </div>
+
+
+                    <div class="cat-shadow"></div>
+
+
+                    <div
+                        class="cat-message"
+                        id="catMessage"
+                    >
+                        🐾 Hi! Let's learn English!
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             LEARNING SECTION
+        ====================================== -->
+
+        <section
+            id="learning"
+            class="section"
+        >
+
+            <div class="section-heading">
+
+                <span class="section-label">
+                    📚 LEARNING SPACE
+                </span>
+
+
+                <h2>
+                    What would you like to learn?
+                </h2>
+
+
+                <p>
+                    Choose an activity and let's make
+                    English learning fun.
+                </p>
+
+            </div>
+
+
+            <div class="learning-grid">
+
+
+                <div
+                    class="learning-card"
+                    onclick="openLesson('Vocabulary')"
+                >
+
+                    <div class="card-icon">
+                        📖
+                    </div>
+
+
+                    <h3>
+                        Vocabulary
+                    </h3>
+
+
+                    <p>
+                        Learn new words and discover
+                        how to use them.
+                    </p>
+
+
+                    <span class="card-arrow">
+                        →
+                    </span>
+
+                </div>
+
+
+
+                <div
+                    class="learning-card"
+                    onclick="openLesson('Grammar')"
+                >
+
+                    <div class="card-icon">
+                        ✏️
+                    </div>
+
+
+                    <h3>
+                        Grammar
+                    </h3>
+
+
+                    <p>
+                        Practice grammar and build
+                        better sentences.
+                    </p>
+
+
+                    <span class="card-arrow">
+                        →
+                    </span>
+
+                </div>
+
+
+
+                <div
+                    class="learning-card"
+                    onclick="openLesson('Speaking')"
+                >
+
+                    <div class="card-icon">
+                        💬
+                    </div>
+
+
+                    <h3>
+                        Speaking
+                    </h3>
+
+
+                    <p>
+                        Practice communication and
+                        express yourself.
+                    </p>
+
+
+                    <span class="card-arrow">
+                        →
+                    </span>
+
+                </div>
+
+
+
+                <div
+                    class="learning-card"
+                    onclick="openLesson('Reading')"
+                >
+
+                    <div class="card-icon">
+                        🌸
+                    </div>
+
+
+                    <h3>
+                        Reading
+                    </h3>
+
+
+                    <p>
+                        Improve comprehension through
+                        interesting texts.
+                    </p>
+
+
+                    <span class="card-arrow">
+                        →
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+     VOCABULARY LEARNING SECTION
+====================================== -->
+
+<section id="vocabularyLesson" class="lesson-detail-section">
+
+    <div class="lesson-detail-header">
+
+        <span class="section-label">
+            📖 VOCABULARY
+        </span>
+
+        <h2>
+            Let's Build Your Vocabulary!
+        </h2>
+
+        <p>
+            Discover new words, understand their meanings,
+            and learn how to use them in everyday English.
+        </p>
+
+    </div>
+
+
+    <div class="lesson-topic-grid">
+
+        <div class="lesson-topic-card">
+            <span>🌱</span>
+            <h3>Everyday Vocabulary</h3>
+            <p>Learn useful English words for everyday conversations.</p>
+        </div>
+
+        <div class="lesson-topic-card">
+            <span>🏫</span>
+            <h3>School Vocabulary</h3>
+            <p>Learn words and expressions commonly used at school.</p>
+        </div>
+
+        <div class="lesson-topic-card">
+            <span>👩‍🦰</span>
+            <h3>Describing People</h3>
+            <p>Learn words for describing people, personalities, and feelings.</p>
+        </div>
+
+        <div class="lesson-topic-card">
+            <span>🌎</span>
+            <h3>Travel Vocabulary</h3>
+            <p>Learn useful words and expressions for traveling.</p>
+        </div>
+
+        <div class="lesson-topic-card">
+            <span>💡</span>
+            <h3>Synonyms & Antonyms</h3>
+            <p>Discover words with similar and opposite meanings.</p>
+        </div>
+
+        <div class="lesson-topic-card">
+            <span>💬</span>
+            <h3>Common Expressions</h3>
+            <p>Learn natural English expressions used in conversations.</p>
+        </div>
+
+    </div>
+
+
+    <button class="back-learning-btn" onclick="backToLearning()">
+        ← Back to Learning
+    </button>
+
+</section>
+
+
+
+<!-- =====================================
+     GRAMMAR LEARNING SECTION
+====================================== -->
+
+<section id="grammarLesson" class="lesson-detail-section">
+
+    <div class="lesson-detail-header">
+
+        <span class="section-label">
+            ✏️ GRAMMAR
+        </span>
+
+        <h2>
+            Let's Improve Your Grammar!
+        </h2>
+
+        <p>
+            Learn how English sentences work and
+            practice building clear and correct sentences.
+        </p>
+
+    </div>
+
+
+    <div class="lesson-topic-grid">
+
+        <div class="lesson-topic-card">
+            <span>🔤</span>
+            <h3>Parts of Speech</h3>
+            <p>Learn about nouns, verbs, adjectives, adverbs, and more.</p>
+        </div>
+
+        <div class="lesson-topic-card">
+            <span>📝</span>
+            <h3>Sentence Structure</h3>
+            <p>Learn how to organize words into meaningful sentences.</p>
+        </div>
+
+        <div class="lesson-topic-card">
+            <span>⏰</span>
+            <h3>Verb Tenses</h3>
+            <p>Practice present, past, and future forms of verbs.</p>
+        </div>
+
+        <div class="lesson-topic-card">
+            <span>👥</span>
+            <h3>Subject-Verb Agreement</h3>
+            <p>Learn how subjects and verbs work together correctly.</p>
+        </div>
+
+        <div class="lesson-topic-card">
+            <span>❓</span>
+            <h3>Questions</h3>
+            <p>Learn how to form different types of English questions.</p>
+        </div>
+
+        <div class="lesson-topic-card">
+            <span>🔄</span>
+            <h3>Active & Passive Voice</h3>
+            <p>Understand the difference between active and passive sentences.</p>
+        </div>
+
+    </div>
+
+
+    <button class="back-learning-btn" onclick="backToLearning()">
+        ← Back to Learning
+    </button>
+
+</section>
+
+
+
+<!-- =====================================
+     SPEAKING LEARNING SECTION
+====================================== -->
+
+<section id="speakingLesson" class="lesson-detail-section">
+
+    <div class="lesson-detail-header">
+
+        <span class="section-label">
+            💬 SPEAKING
+        </span>
+
+        <h2>
+            Let's Practice Speaking!
+        </h2>
+
+        <p>
+            Build your confidence and learn how to
+            communicate naturally in English.
+        </p>
+
+    </div>
+
+
+    <div class="lesson-topic-grid">
+
+        <div class="lesson-topic-card">
+            <span>👋</span>
+            <h3>Introducing Yourself</h3>
+            <p>Practice introducing yourself in different situations.</p>
+        </div>
+
+        <div class="lesson-topic-card">
+            <span>🗣️</span>
+            <h3>Everyday Conversations</h3>
+            <p>Practice useful conversations for everyday situations.</p>
+        </div>
+
+        <div class="lesson-topic-card">
+            <span>❓</span>
+            <h3>Asking Questions</h3>
+            <p>Learn how to ask and answer questions naturally.</p>
+        </div>
+
+        <div class="lesson-topic-card">
+            <span>❤️</span>
+            <h3>Expressing Opinions</h3>
+            <p>Learn how to share your thoughts and opinions confidently.</p>
+        </div>
+
+        <div class="lesson-topic-card">
+            <span>🎤</span>
+            <h3>Pronunciation</h3>
+            <p>Practice sounds and pronunciation for clearer speaking.</p>
+        </div>
+
+        <div class="lesson-topic-card">
+            <span>🌟</span>
+            <h3>Speaking Confidence</h3>
+            <p>Practice speaking English with greater confidence.</p>
+        </div>
+
+    </div>
+
+
+    <button class="back-learning-btn" onclick="backToLearning()">
+        ← Back to Learning
+    </button>
+
+</section>
+
+
+
+<!-- =====================================
+     READING LEARNING SECTION
+====================================== -->
+
+<section id="readingLesson" class="lesson-detail-section">
+
+    <div class="lesson-detail-header">
+
+        <span class="section-label">
+            🌸 READING
+        </span>
+
+        <h2>
+            Let's Explore Through Reading!
+        </h2>
+
+        <p>
+            Improve your understanding of English through
+            interesting texts and reading activities.
+        </p>
+
+    </div>
+
+
+    <div class="lesson-topic-grid">
+
+        <div class="lesson-topic-card">
+            <span>📖</span>
+            <h3>Reading Comprehension</h3>
+            <p>Practice understanding the meaning of different texts.</p>
+        </div>
+
+        <div class="lesson-topic-card">
+            <span>💡</span>
+            <h3>Finding the Main Idea</h3>
+            <p>Learn how to identify the most important idea in a text.</p>
+        </div>
+
+        <div class="lesson-topic-card">
+            <span>🔎</span>
+            <h3>Finding Details</h3>
+            <p>Practice locating important information in a passage.</p>
+        </div>
+
+        <div class="lesson-topic-card">
+            <span>🧠</span>
+            <h3>Making Inferences</h3>
+            <p>Learn how to understand information that is not directly stated.</p>
+        </div>
+
+        <div class="lesson-topic-card">
+            <span>📚</span>
+            <h3>Short Stories</h3>
+            <p>Improve your reading through fun and interesting stories.</p>
+        </div>
+
+        <div class="lesson-topic-card">
+            <span>🔤</span>
+            <h3>Vocabulary in Context</h3>
+            <p>Learn how to understand unfamiliar words using context clues.</p>
+        </div>
+
+    </div>
+
+
+    <button class="back-learning-btn" onclick="backToLearning()">
+        ← Back to Learning
+    </button>
+
+</section>
+    
+
+
+
+        <!-- =====================================
+             PROGRESS SECTION
+        ====================================== -->
+
+        <section
+            id="progress"
+            class="section progress-section"
+        >
+
+            <div class="section-heading">
+
+                <span class="section-label">
+                    🌱 STUDENT JOURNEY
+                </span>
+
+
+                <h2>
+                    Every little step counts.
+                </h2>
+
+
+                <p>
+                    Track your learning journey and
+                    celebrate your progress.
+                </p>
+
+            </div>
+
+
+            <div class="progress-card">
+
+                <div class="progress-cat">
+                    🐱
+                </div>
+
+
+                <div class="progress-information">
+
+                    <h3>
+                        Your Learning Journey
+                    </h3>
+
+
+                    <p>
+                        Your progress will appear here
+                        once your teacher records your
+                        lessons.
+                    </p>
+
+
+                    <div class="progress-bar">
+
+                        <div class="progress-fill"></div>
+
+                    </div>
+
+
+                    <div class="progress-details">
+
+                        <span>
+                            🌸 Getting started
+                        </span>
+
+
+                        <span>
+                            0%
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             ABOUT SECTION
+        ====================================== -->
+
+        <section
+            id="about"
+            class="section about-section"
+        >
+
+            <div class="about-card">
+
+                <div class="about-cat">
+                    🐱
+                </div>
+
+
+                <div>
+
+                    <span class="section-label">
+                        💕 ABOUT THIS SPACE
+                    </span>
+
+
+                    <h2>
+                        Made for learning,
+                        made with care.
+                    </h2>
+
+
+                    <p>
+                        This is a personal ESL learning
+                        space designed to make English
+                        practice more comfortable,
+                        enjoyable, and meaningful.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================
+         STUDENT WELCOME MODAL
+         
+         IMPORTANT:
+         These IDs are DIFFERENT from the
+         Add Student form.
+    ========================================== -->
+
+    <div
+        id="studentModal"
+        class="modal"
+    >
+
+        <div class="modal-content">
+
+
+            <button
+                class="close-button"
+                onclick="closeStudentArea()"
+            >
+                ×
+            </button>
+
+
+            <div class="modal-cat">
+                🐱
+            </div>
+
+
+            <h2>
+                Welcome, Learner!
+            </h2>
+
+
+            <p>
+                Enter your name to enter your
+                learning space.
+            </p>
+
+
+            <input
+                type="text"
+                id="welcomeStudentName"
+                placeholder="Enter your name..."
+            >
+
+
+            <button
+                class="primary-button modal-button"
+                onclick="studentWelcome()"
+            >
+                Continue ✨
+            </button>
+
+
+            <p
+                id="welcomeStudentMessage"
+                class="student-message"
+            ></p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         TEACHER LOGIN MODAL
+         
+         THIS IS THE ONLY TEACHER LOGIN.
+         
+         Uses Supabase:
+         EMAIL + PASSWORD
+    ========================================== -->
+
+    <div
+        id="teacherLoginModal"
+        class="teacher-modal"
+    >
+
+        <div class="teacher-login-box">
+
+
+            <button
+                class="close-login"
+                onclick="closeTeacherLogin()"
+            >
+                ×
+            </button>
+
+
+            <div class="teacher-icon">
+                👩‍🏫
+            </div>
+
+
+            <h2>
+                Teacher Login
+            </h2>
+
+
+            <p>
+                Welcome back, Teacher!
+            </p>
+
+
+            <input
+                type="email"
+                id="teacherEmail"
+                placeholder="Teacher Email"
+                autocomplete="email"
+            >
+
+
+            <input
+                type="password"
+                id="teacherPassword"
+                placeholder="Password"
+                autocomplete="current-password"
+            >
+
+
+            <button
+                class="login-submit"
+                onclick="teacherLogin()"
+            >
+                Login
+            </button>
+
+
+            <p id="loginMessage"></p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         TEACHER DASHBOARD
+    ========================================== -->
+
+    <section
+        id="teacherDashboard"
+        class="teacher-dashboard"
+    >
+
+        <div class="dashboard-header">
+
+
+            <div>
+
+                <span class="dashboard-label">
+                    👩‍🏫 TEACHER AREA
+                </span>
+
+
+                <h2>
+                    My ESL Cat Space
+                </h2>
+
+
+                <p>
+                    Manage your students and track
+                    their English progress.
+                </p>
+
+            </div>
+
+
+            <button
+                class="dashboard-close"
+                onclick="closeTeacherDashboard()"
+            >
+                ✕
+            </button>
+
+        </div>
+
+
+
+        <!-- DASHBOARD ACTIONS -->
+
+        <div class="dashboard-actions">
+
+            <button
+                class="add-student-button"
+                onclick="openAddStudent()"
+            >
+                ➕ Add Student
+            </button>
+
+        </div>
+
+
+
+        <!-- STUDENT LIST -->
+
+        <div class="student-section">
+
+            <h3>
+                👨‍🎓 My Students
+            </h3>
+
+
+            <div id="studentList">
+
+                <p class="empty-students">
+                    Loading students...
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         ADD STUDENT MODAL
+         
+         IMPORTANT:
+         These IDs are ONLY for the teacher's
+         Add Student form.
+    ========================================== -->
+
+    <div
+        id="addStudentModal"
+        class="student-modal"
+    >
+
+        <div class="student-form-box">
+
+
+            <button
+                class="close-student-form"
+                onclick="closeAddStudent()"
+            >
+                ×
+            </button>
+
+
+            <h2>
+                🐱 Add a Student
+            </h2>
+
+
+            <p>
+                Create a student profile.
+            </p>
+
+
+            <input
+                type="text"
+                id="newStudentName"
+                placeholder="Student name"
+            >
+
+
+            <select id="studentLevel">
+
+                <option value="Beginner">
+                    Beginner
+                </option>
+
+                <option value="Elementary">
+                    Elementary
+                </option>
+
+                <option value="Intermediate">
+                    Intermediate
+                </option>
+
+                <option value="Advanced">
+                    Advanced
+                </option>
+
+            </select>
+
+
+            <button
+                class="save-student-button"
+                onclick="addStudent()"
+            >
+                Save Student
+            </button>
+
+
+            <p
+                id="addStudentMessage"
+                class="student-message"
+            ></p>
+
+        </div>
+
+    </div>
+
+    <!-- UPDATE PROGRESS MODAL -->
+<div id="updateProgressModal" class="student-modal">
+
+    <div class="student-form-box progress-form-box">
+
+        <button
+            class="close-student-form"
+            onclick="closeUpdateProgress()"
+        >
+            ×
+        </button>
+
+        <div class="progress-modal-icon">📈</div>
+
+        <h2>Update Student Progress</h2>
+
+        <p id="progressStudentName">
+            Updating student progress...
+        </p>
+
+        <!-- Current Lesson -->
+        <label for="progressLesson">
+            📚 Current Lesson
+        </label>
+
+        <input
+            type="text"
+            id="progressLesson"
+            placeholder="Example: Nouns"
+        >
+
+        <!-- Progress -->
+        <label for="progressValue">
+            🌱 Progress
+        </label>
+
+        <div class="progress-input-row">
+
+            <input
+                type="range"
+                id="progressValue"
+                min="0"
+                max="100"
+                value="0"
+                oninput="updateProgressNumber()"
+            >
+
+            <span id="progressNumber">
+                0%
+            </span>
+
+        </div>
+
+        <!-- Last Score -->
+        <label for="progressScore">
+            📝 Last Score
+        </label>
+
+        <input
+            type="number"
+            id="progressScore"
+            min="0"
+            max="100"
+            placeholder="Example: 90"
+        >
+
+        <!-- Teacher Notes -->
+        <label for="progressNotes">
+            💬 Teacher Notes
+        </label>
+
+        <textarea
+            id="progressNotes"
+            rows="4"
+            placeholder="Write a short note about the student's progress..."
+        ></textarea>
+
+        <button
+            class="save-progress-button"
+            onclick="saveStudentProgress()"
+        >
+            💾 Save Progress
+        </button>
+
+        <p
+            id="progressMessage"
+            class="student-message"
+        ></p>
+
+    </div>
+
+</div>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        <div class="footer-cat">
+            🐱
+        </div>
+
+
+        <p>
+            Made with ♡ for English learners.
+        </p>
+
+
+        <span>
+            My ESL Cat Space © 2026
+        </span>
+
+    </footer>
+
+
+
+    <!-- =========================================
+         SUPABASE
+         
+         MUST LOAD BEFORE script.js
+    ========================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
