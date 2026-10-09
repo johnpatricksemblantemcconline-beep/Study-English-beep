@@ -165,6 +165,7 @@ async function teacherLogin() {
 }
 
 
+
 // =========================================
 // TEACHER DASHBOARD
 // =========================================
@@ -264,56 +265,51 @@ function closeAddStudent() {
 
 async function addStudent() {
 
-    const name =
-        document
-            .getElementById("newStudentName")
-            .value
-            .trim();
+    const name = document
+        .getElementById("newStudentName")
+        .value
+        .trim();
 
+    const level = document
+        .getElementById("studentLevel")
+        .value;
 
-    const level =
-        document
-            .getElementById("studentLevel")
-            .value;
+    const gender = document
+        .getElementById("newStudentGender")
+        .value;
 
+    const startDateInput = document
+        .getElementById("newStudentStartDate");
 
-    const message =
-        document.getElementById(
-            "addStudentMessage"
-        );
+    const startDate = startDateInput.value;
 
+    const message = document.getElementById(
+        "addStudentMessage"
+    );
 
     // Check student name
-
     if (!name) {
-
         message.textContent =
             "Please enter the student's name.";
-
         return;
     }
 
+    // Check start date
+    if (!startDate) {
+        message.textContent =
+            "Please select the student's start date.";
+        return;
+    }
 
-    message.textContent =
-        "Saving student...";
-
+    message.textContent = "Saving student...";
 
     // Get logged-in teacher
-
     const {
-
-        data: {
-            user
-        },
-
+        data: { user },
         error: userError
-
-    } =
-        await supabaseClient.auth.getUser();
-
+    } = await supabaseClient.auth.getUser();
 
     if (userError || !user) {
-
         console.error(
             "Teacher authentication error:",
             userError
@@ -321,80 +317,53 @@ async function addStudent() {
 
         message.textContent =
             "You must be logged in as a teacher.";
-
         return;
     }
 
-
-    // Save student
-
+    // Save student to Supabase
     const {
         data,
         error
-    } =
-        await supabaseClient
-            .from("students")
-            .insert([
+    } = await supabaseClient
+        .from("students")
+        .insert([
+            {
+                name: name,
+                level: level,
+                gender: gender,
+                start_date: startDate,
+                teacher_id: user.id
+            }
+        ])
+        .select();
 
-                {
-
-                    name: name,
-
-                    level: level,
-
-                    teacher_id: user.id
-
-                }
-
-            ])
-            .select();
-
-
-    // Saving failed
-
+    // Check for errors
     if (error) {
-
-        console.error(
-            "ADD STUDENT ERROR:",
-            error
-        );
+        console.error("ADD STUDENT ERROR:", error);
 
         message.textContent =
-            "Could not save the student.";
+            "Could not save the student. Please check the console.";
 
         return;
     }
 
-
     // Saving successful
-
-    console.log(
-        "Student added:",
-        data
-    );
-
+    console.log("Student added:", data);
 
     message.textContent =
         "Student added successfully! 🎉";
 
+    // Clear the form
+    document.getElementById("newStudentName").value = "";
+    document.getElementById("studentLevel").value = "Beginner";
+    document.getElementById("newStudentGender").value = "Male";
+    startDateInput.value = "";
 
-    // Clear name field
-
-    document
-        .getElementById("newStudentName")
-        .value = "";
-
-
-    // Refresh student list
-
+    // Refresh the student list
     setTimeout(() => {
-
         closeAddStudent();
-
         loadStudents();
-
     }, 700);
-
 }
 
 
@@ -412,31 +381,23 @@ async function loadStudents() {
     }
 
     studentList.innerHTML = `
-        <p class="empty-students">
-            Loading students... 🐱
-        </p>
+        <p class="empty-students">Loading students... 🐱</p>
     `;
 
-    // Get currently logged-in teacher
+    // Get logged-in teacher
     const {
         data: { user },
         error: userError
     } = await supabaseClient.auth.getUser();
 
     if (userError || !user) {
-
-        console.error("Teacher is not logged in.");
-
         studentList.innerHTML = `
-            <p class="empty-students">
-                Please log in again.
-            </p>
+            <p class="empty-students">Please log in again.</p>
         `;
-
         return;
     }
 
-    // Get this teacher's students
+    // Load this teacher's students
     const { data, error } = await supabaseClient
         .from("students")
         .select("*")
@@ -444,21 +405,14 @@ async function loadStudents() {
         .order("created_at", { ascending: false });
 
     if (error) {
-
         console.error("Error loading students:", error);
-
         studentList.innerHTML = `
-            <p class="empty-students">
-                Unable to load students.
-            </p>
+            <p class="empty-students">Unable to load students.</p>
         `;
-
         return;
     }
 
-    // No students yet
     if (!data || data.length === 0) {
-
         studentList.innerHTML = `
             <div class="empty-students">
                 <div style="font-size: 40px;">🐱</div>
@@ -466,30 +420,41 @@ async function loadStudents() {
                 <p>Add your first student!</p>
             </div>
         `;
-
         return;
     }
 
-    // Display students
     studentList.innerHTML = "";
 
     data.forEach(student => {
 
-        const progress = student.progress || 0;
+        const progress = Number(student.progress) || 0;
+        const safeProgress = Math.min(100, Math.max(0, progress));
 
         const lesson =
-            student.current_lesson ||
-            "No lesson recorded yet";
+            student.current_lesson || "No lesson recorded yet";
 
-        const score =
-            student.last_score || 0;
+        const score = student.last_score ?? 0;
 
         const notes =
-            student.teacher_notes ||
-            "No teacher notes yet.";
+            student.teacher_notes || "No teacher notes yet.";
+
+        // Select icon using the saved gender
+        const gender = (student.gender || "Male").toLowerCase();
+
+        const studentIcon =
+            gender === "female" ? "👩‍🎓" : "👨‍🎓";
+
+        // Format the saved start date
+        const startDate = student.start_date
+            ? new Date(student.start_date + "T12:00:00")
+                .toLocaleDateString("en-PH", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric"
+                })
+            : "Not recorded";
 
         const studentCard = document.createElement("div");
-
         studentCard.className = "student-card";
 
         studentCard.innerHTML = `
@@ -497,18 +462,20 @@ async function loadStudents() {
             <div class="student-card-top">
 
                 <div class="student-avatar">
-                    👩‍🎓
+                    ${studentIcon}
                 </div>
 
                 <div class="student-main-info">
 
-                    <h3>
-                        ${escapeHTML(student.name)}
-                    </h3>
+                    <h3>${escapeHTML(student.name)}</h3>
 
                     <span class="student-level">
                         ${escapeHTML(student.level || "Beginner")}
                     </span>
+
+                    <div style="font-size: 13px; margin-top: 5px;">
+                        ${gender === "female" ? "Female" : "Male"}
+                    </div>
 
                 </div>
 
@@ -517,52 +484,51 @@ async function loadStudents() {
             <div class="student-progress-info">
 
                 <div class="progress-row">
+                    <span>📅 Started Learning</span>
+                    <strong>${escapeHTML(startDate)}</strong>
+                </div>
 
+                <button
+                    type="button"
+                    class="update-progress-button"
+                    onclick="updateStudentStartDate('${student.id}')"
+                >
+                    🗓️ Change Start Date
+                </button>
+
+                <button
+                    type="button"
+                    class="update-progress-button"
+                    onclick="updateStudentGender('${student.id}')"
+                >
+                    👤 Change Gender
+                </button>
+
+                <div class="progress-row">
                     <span>📚 Current Lesson</span>
-
-                    <strong>
-                        ${escapeHTML(lesson)}
-                    </strong>
-
+                    <strong>${escapeHTML(lesson)}</strong>
                 </div>
 
                 <div class="progress-row">
-
                     <span>🌱 Progress</span>
-
-                    <strong>
-                        ${progress}%
-                    </strong>
-
+                    <strong>${safeProgress}%</strong>
                 </div>
 
                 <div class="dashboard-progress-bar">
-
                     <div
                         class="dashboard-progress-fill"
-                        style="width: ${progress}%"
+                        style="width: ${safeProgress}%"
                     ></div>
-
                 </div>
 
                 <div class="progress-row">
-
                     <span>📝 Last Score</span>
-
-                    <strong>
-                        ${score}
-                    </strong>
-
+                    <strong>${escapeHTML(String(score))}</strong>
                 </div>
 
                 <div class="teacher-note-display">
-
                     <span>💬 Teacher Notes</span>
-
-                    <p>
-                        ${escapeHTML(notes)}
-                    </p>
-
+                    <p>${escapeHTML(notes)}</p>
                 </div>
 
             </div>
@@ -573,14 +539,112 @@ async function loadStudents() {
             >
                 📈 Update Progress
             </button>
-
         `;
 
         studentList.appendChild(studentCard);
-
     });
 }
 
+
+// Change a student's start date
+async function updateStudentStartDate(studentId) {
+
+    const newDate = prompt(
+        "Enter the new start date (YYYY-MM-DD):"
+    );
+
+    // Cancel was clicked
+    if (newDate === null) {
+        return;
+    }
+
+    const datePattern = /^\d{4}-\d{2}-\d{2}$/;
+
+    if (!datePattern.test(newDate)) {
+        alert("Please enter the date in YYYY-MM-DD format.");
+        return;
+    }
+
+    const parsedDate = new Date(newDate + "T12:00:00");
+
+    if (
+        Number.isNaN(parsedDate.getTime()) ||
+        parsedDate.toISOString().slice(0, 10) !== newDate
+    ) {
+        alert("That date is not valid. Please try again.");
+        return;
+    }
+
+    const {
+        data: { user },
+        error: userError
+    } = await supabaseClient.auth.getUser();
+
+    if (userError || !user) {
+        alert("Please log in again as a teacher.");
+        return;
+    }
+
+    const { error } = await supabaseClient
+        .from("students")
+        .update({ start_date: newDate })
+        .eq("id", studentId)
+        .eq("teacher_id", user.id);
+
+    if (error) {
+        console.error("Error updating start date:", error);
+        alert("Could not update the start date. Please try again.");
+        return;
+    }
+
+    alert("Student start date updated successfully! 🐾");
+
+    await loadStudents();
+}
+
+async function updateStudentGender(studentId) {
+    const choice = prompt(
+        "Enter the student's gender:\n\nType Male or Female."
+    );
+
+    if (choice === null) return;
+
+    const gender = choice.trim().toLowerCase();
+
+    if (gender !== "male" && gender !== "female") {
+        alert("Please enter Male or Female.");
+        return;
+    }
+
+    const savedGender =
+        gender === "male" ? "Male" : "Female";
+
+    const {
+        data: { user },
+        error: userError
+    } = await supabaseClient.auth.getUser();
+
+    if (userError || !user) {
+        alert("Please log in again as a teacher.");
+        return;
+    }
+
+    const { error } = await supabaseClient
+        .from("students")
+        .update({ gender: savedGender })
+        .eq("id", studentId)
+        .eq("teacher_id", user.id);
+
+    if (error) {
+        console.error("Error updating gender:", error);
+        alert("Could not update gender. Please try again.");
+        return;
+    }
+
+    alert("Student gender updated successfully! 🐱");
+
+    await loadStudents();
+}
 
 // =========================================
 // SECURITY HELPER

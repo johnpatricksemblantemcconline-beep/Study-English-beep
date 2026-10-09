@@ -2686,3 +2686,355 @@ body {
     }
 
 }
+
+/* ========================================
+   🐱 MY ESL CAT SPACE — ADD STUDENT MODAL
+======================================== */
+
+/* Soft pastel overlay behind the form */
+#addStudentModal.student-modal {
+    background: rgba(103, 75, 126, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 20px;
+}
+
+/* Main Add Student card */
+#addStudentModal .student-form-box {
+    background: linear-gradient(
+        135deg,
+        #fff0f7 0%,
+        #f3eaff 48%,
+        #eaf5ff 100%
+    ) !important;
+
+    color: #594568;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 26px;
+    padding: 32px;
+    box-shadow: 0 18px 50px rgba(154, 111, 175, 0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Soft decorative glow */
+#addStudentModal .student-form-box::before {
+    content: "";
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    top: -80px;
+    right: -60px;
+    background: rgba(255, 190, 225, 0.4);
+    border-radius: 50%;
+    filter: blur(10px);
+    pointer-events: none;
+}
+
+/* Keep form content above the decoration */
+#addStudentModal .student-form-box > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Heading */
+#addStudentModal .student-form-box h2 {
+    color: #a64d85;
+    margin-bottom: 8px;
+}
+
+/* Description */
+#addStudentModal .student-form-box p {
+    color: #806b91;
+}
+
+/* Gender and Start Date labels */
+#addStudentModal .student-form-box label {
+    display: block;
+    color: #805b91;
+    font-weight: 600;
+    margin: 12px 0 6px;
+}
+
+/* Input fields and dropdowns */
+#addStudentModal .student-form-box input,
+#addStudentModal .student-form-box select {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 15px;
+    margin: 10px 0;
+    border-radius: 14px;
+    border: 1px solid #e5cce9;
+    background: rgba(255, 255, 255, 0.85);
+    color: #594568;
+    font: inherit;
+    outline: none;
+    transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+/* Focus effect */
+#addStudentModal .student-form-box input:focus,
+#addStudentModal .student-form-box select:focus {
+    border-color: #d78ac0;
+    box-shadow: 0 0 0 4px rgba(215, 138, 192, 0.17);
+}
+
+/* Save Student button */
+#addStudentModal .save-student-button {
+    display: block;
+    width: 100%;
+    margin-top: 22px;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #e99bc9, #b9a0ed);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(185, 140, 205, 0.25);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#addStudentModal .save-student-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(185, 140, 205, 0.35);
+}
+
+/* Close button */
+#addStudentModal .close-student-form {
+    color: #a64d85;
+    background: rgba(255, 255, 255, 0.75);
+    border: none;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+#addStudentModal .close-student-form:hover {
+    background: #ffe0f0;
+    transform: rotate(90deg);
+}
+
+/* Student form message */
+#addStudentModal .student-message {
+    overflow-wrap: anywhere;
+}
+
+/* ========================================
+   🐱 MY ESL CAT SPACE — TEACHER DASHBOARD
+======================================== */
+
+/* Dashboard background */
+#teacherDashboard.teacher-dashboard {
+    background: linear-gradient(
+        135deg,
+        #fff0f7 0%,
+        #f3eaff 45%,
+        #eaf5ff 100%
+    ) !important;
+
+    color: #594568;
+}
+
+/* Dashboard heading */
+#teacherDashboard h1,
+#teacherDashboard h2,
+#teacherDashboard h3 {
+    color: #a64d85;
+}
+
+/* Dashboard description and general text */
+#teacherDashboard p,
+#teacherDashboard span {
+    color: #806b91;
+}
+
+/* Student cards */
+#teacherDashboard .student-card {
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(226, 199, 236, 0.8);
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(154, 111, 175, 0.12);
+    padding: 22px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Gentle hover effect */
+#teacherDashboard .student-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(154, 111, 175, 0.2);
+}
+
+/* Student name */
+#teacherDashboard .student-main-info h3 {
+    color: #a64d85;
+}
+
+/* Student level badge */
+#teacherDashboard .student-level {
+    display: inline-block;
+    background: #f9dff0;
+    color: #925a91 !important;
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 13px;
+}
+
+/* Progress bar background */
+#teacherDashboard .dashboard-progress-bar {
+    background: #eadff4;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Progress bar fill */
+#teacherDashboard .dashboard-progress-fill {
+    background: linear-gradient(
+        90deg,
+        #efa5ce,
+        #b9a0ed,
+        #a4d8ee
+    );
+    border-radius: 20px;
+}
+
+/* Teacher notes */
+#teacherDashboard .teacher-note-display {
+    background: #fff2f9;
+    border: 1px solid #f2d8eb;
+    border-radius: 14px;
+    padding: 12px 15px;
+    margin-top: 14px;
+}
+
+/* Dashboard buttons */
+#teacherDashboard button {
+    border-radius: 14px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Add Student button */
+#teacherDashboard .dashboard-actions button {
+    background: linear-gradient(135deg, #e99bc9, #b9a0ed);
+    color: white;
+    border: none;
+    box-shadow: 0 6px 16px rgba(185, 140, 205, 0.2);
+}
+
+/* Update Progress button */
+#teacherDashboard .update-progress-button {
+    background: linear-gradient(135deg, #e99bc9, #b9a0ed);
+    color: white;
+    border: none;
+    padding: 11px 16px;
+    cursor: pointer;
+}
+
+/* Button hover */
+#teacherDashboard button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(185, 140, 205, 0.25);
+}
+
+/* Student avatar */
+#teacherDashboard .student-avatar {
+    background: #fce5f3;
+    border-radius: 18px;
+    padding: 12px;
+}
+
+/* Empty student area */
+#teacherDashboard .empty-students {
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px dashed #dfc3e8;
+    border-radius: 22px;
+    padding: 28px;
+    color: #806b91;
+}
+
+/* Dashboard scrolling */
+#teacherDashboard {
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+/* 🌸 FIX: FULL TEACHER AREA PASTEL BACKGROUND */
+
+#teacherDashboard.teacher-dashboard {
+    background: linear-gradient(
+        135deg,
+        #fff0f7 0%,
+        #f3eaff 48%,
+        #eaf5ff 100%
+    ) !important;
+
+    background-color: #fff0f7 !important;
+    min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Remove white backgrounds from dashboard's main containers */
+#teacherDashboard .dashboard-content,
+#teacherDashboard .dashboard-container,
+#teacherDashboard .dashboard-main,
+#teacherDashboard .dashboard-header,
+#teacherDashboard .dashboard-actions,
+#teacherDashboard #studentList {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Keep student cards softly colored */
+#teacherDashboard .student-card {
+    background: linear-gradient(
+        135deg,
+        #fffafd 0%,
+        #f9f0ff 100%
+    ) !important;
+
+    border: 1px solid #ead8f2;
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(154, 111, 175, 0.12);
+}
+
+/* Pastel dashboard text */
+#teacherDashboard h1,
+#teacherDashboard h2,
+#teacherDashboard h3 {
+    color: #a64d85;
+}
+
+#teacherDashboard p,
+#teacherDashboard span {
+    color: #806b91;
+}
+
+/* FIX: Make the Add Student X button clickable */
+
+#addStudentModal .student-form-box {
+    position: relative;
+}
+
+#addStudentModal .close-student-form {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 1000;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* Keep the decorative glow behind the close button */
+#addStudentModal .student-form-box::before {
+    pointer-events: none;
+}
+
+/* Ensure the modal itself does not block its buttons */
+#addStudentModal .student-form-box button {
+    pointer-events: auto;
+}
